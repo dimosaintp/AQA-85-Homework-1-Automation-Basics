@@ -2,6 +2,7 @@ package ru.netology.service;
 
 import org.junit.Test;
 import org.junit.Assert;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashbackHackServiceTest {
 
@@ -30,5 +31,23 @@ public class CashbackHackServiceTest {
         int actual = service.remain(amount);
         int expected = 0;
         Assert.assertEquals(expected, actual);
+    }
+
+    //Тесты с использованием API JUnit Jupiter
+    
+    @Test
+    public void shouldAdviceIfAmountNullAPIJUnitJupiter() {
+    assertEquals(1000, service.remain(0));
+    }
+
+    @Test
+    public void shouldAdviceIfAmountLessThanBoundaryAPIJUnitJupiter() {
+       assertEquals(200, service.remain(800));
+    }
+
+    //Тест написан кратко
+    @Test
+    public void shouldAdviceIfAmountMoreThanBoundaryAPIJUnitJupiter() {
+        assertEquals(0, service.remain(1200));
     }
 }
