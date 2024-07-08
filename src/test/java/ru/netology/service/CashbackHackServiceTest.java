@@ -4,21 +4,31 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class CashbackHackServiceTest {
+
     CashbackHackService service = new CashbackHackService();
 
     @Test
     public void shouldAdviceIfAmountNull() {
-        Assert.assertEquals(service.remain(0), 1_000);
+        int amount = 0;
+        int actual = service.remain(amount);
+        int expected = 1000;
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldAdviceIfAmountLessThanBoundary() {
-        Assert.assertEquals(service.remain(800), 200);
+        int amount = 800;
+        int actual = service.remain(amount);
+        int expected = 200;
+        Assert.assertEquals(expected, actual);
 
     }
 
     @Test
     public void shouldAdviceIfAmountMoreThanBoundary() {
-        Assert.assertEquals(service.remain(1200), 0);
+        int amount = 1200;
+        int actual = service.remain(amount);
+        int expected = 0;
+        Assert.assertEquals(expected, actual);
     }
 }
